@@ -11,8 +11,10 @@ class InteractiveRecord
     DB[:conn].execute("PRAGMA table_info(#{self.table_name})").map { |column| column["name"] }
   end
 
-  def initialize(attributes)
-    binding.pry
+  def initialize(attributes={})
+    attributes.each do |key, value|
+      self.send("#{key}=", value)
+    end
   end
 
 end
