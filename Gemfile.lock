@@ -13,7 +13,7 @@ PLATFORMS
 
 DEPENDENCIES
   pry
-  sqlite3
+  sqlite3 (~> 1.4)
 
 BUNDLED WITH
    2.1.4
