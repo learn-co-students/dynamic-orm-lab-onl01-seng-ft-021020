@@ -48,7 +48,6 @@ class InteractiveRecord
         DB[:conn].execute(sql)
         @id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{table_name_for_insert}")[0][0]
         attributes = DB[:conn].execute("SELECT * FROM #{table_name_for_insert} WHERE id = #{@id}")
-        binding.pry
         attributes.first.delete_if{|key, value| key.class == Integer}
         attributes
     end
